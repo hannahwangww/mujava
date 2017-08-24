@@ -1,0 +1,113 @@
+一、配置安装环境
+1.解压缩libevent-1.4.14b-stable.tar.gz 并且重命名为libevent
+./configure --prefix=/usr/local/libevent
+make
+su - root
+make install
+ln -s /usr/local/libevent/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5
+
+2.解压缩pcre-8.20.tar.gz 并重命名为pcre
+./configure
+make
+su - root
+make install
+
+3.安装zlib和openssl
+su - root
+yum install zlib*
+su - hadoop
+解压缩openssl-1.0.0d.tar.gz 并且重命名为openssl
+./Configure --prefix=/usr/local/openssl
+make
+su - root
+make install
+
+二、安装部署FastDFS
+1.解压缩FastDFS_v4.04.tar.gz 并重命名为FastDFS
+vi make.sh
+开启WITH_HTTPD和WITH_LINUX_SERVICE 
+./make.sh C_INCLUDE_PATH=/usr/local/libevent/include LIBRARY_PATH=/usr/local/libevent/lib
+su - root
+./make.sh install
+su - hadoop
+mkdir -m 777 -p /home/hadoop/fastDFS
+su - root
+tracker服务器配置如下：
+vi /etc/fdfs/tracker.conf
+base_path=/home/hadoop/fastDFS
+http.server_port=8088   //如果本机没用到8080可以不修改
+#include http.conf   //注意，改完前面有个#，不要全部去掉
+
+storage服务器配置如下：
+vi /etc/fdfs/storage.conf
+base_path=/home/hadoop/fastDFS
+store_path0=/home/hadoop/fastDFS
+tracker_server=192.168.137.32:22122//根据自己的IP
+http.disabled=true//因为我们要用nginx了，这个就关闭它
+http.server_port=80 
+
+2.启动tracker、storage服务器
+/usr/local/bin/fdfs_trackerd /etc/fdfs/tracker.conf
+//查看端口是否开启，看到22122 和8088就说明启动正常。如果没有，查看/home/hadoop/fastDFS/logs里的日志
+
+/usr/local/bin/fdfs_storaged /etc/fdfs/storage.conf
+//查看端口是否开启，看到23000就说明启动正常。如果没有，查看/home/hadoop/fastDFS/logs里的日志 
+
+3.截至到目前步骤，FastDFS已经配置完毕
+
+三、配置FastDFS的storage服务器的web服务器
+以下步骤安装在storage服务器上：
+1.解压缩nginx-1.0.10.tar.gz 并且重命名为nginx
+./configure --prefix=/opt/nginx --with-http_stub_status_module --with-http_stub_status_module --with-http_ssl_module --with-openssl=/home/hadoop/openssl
+make
+su - root
+make install
+
+2.解压缩fastdfs-nginx-module_v1.13.tar.gz 并重命名为fastdfs-nginx-module
+cd nginx
+./configure  --prefix=/opt/nginx --with-http_stub_status_module --with-http_ssl_module --with-openssl=/home/hadoop/openssl  --add-module=/home/hadoop/fastdfs-nginx-module/src
+make
+su - root
+make install
+
+su - hadoop
+cp /home/hadoop/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/
+
+vi /etc/fdfs/mod_fastdfs.conf
+connect_timeout=20      //默认2秒有点小，可改可不改
+base_path=/home/hadoop/fastDFS
+tracker_server=192.168.137.32:22122//根据自己的IP
+store_path0=/home/hadoop/fastDFS
+url_have_group_name = true
+
+su - root
+mkdir /home/hadoop/fastDFS/data
+mkdir /home/hadoop/fastDFS/data/M00
+ln -s  /home/hadoop/fastDFS/data    /home/hadoop/fastDFS/data/M00
+
+vi /opt/nginx/conf/nginx.conf
+//将启worker process的用户改为root
+#user  nobody;
+user root;
+//在server段添加如下内容：
+location /group1/M00/ { root /home/hadoop/fastDFS/data/; ngx_fastdfs_module; }
+/opt/nginx/sbin/nginx -t
+/opt/nginx/sbin/nginx -s stop
+/opt/nginx/sbin/nginx
+//这里直接用 /opt/nginx/sbin/nginx -s  reload 有时候会出现nginx没办法访问。 
+
+四、安装完毕，测试FastDFS是否成功
+1.测试上传
+客户端配置如下：
+vi /etc/fdfs/client.conf
+base_path=/home/hadoop/fastDFS
+tracker_server=192.168.137.32:22122//根据自己的IP
+http.tracker_server_port=8088 //这个一定要跟 tracker.conf里面配置的一样
+#include http.conf       //注意，改完前面有个#，不要全部去掉
+
+echo 'fastDFS_test' > test.txt
+fdfs_test /etc/fdfs/client.conf upload test.txt
+记录下来返回的url
+
+2.nginx拓展模块验证
+//用浏览器打开我们上面记录的URL
