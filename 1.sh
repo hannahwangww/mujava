@@ -3,7 +3,7 @@
 
 #对变量赋值：
 a="hello world"
-# 现在打印变量a的内容：
+# 现在打印变量a的内容：111
 echo "A is:"
 echo $a             #echo ${a}与之结果相同
 echo ${a}
