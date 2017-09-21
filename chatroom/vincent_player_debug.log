@@ -1,0 +1,84 @@
+2017-09-21 18:51:24  [ main:0 ] - [ INFO ]  client address:/127.0.0.1:30000
+2017-09-21 18:51:24  [ main:15 ] - [ INFO ]  This is 1   send   Welcome to Chat：
+2017-09-21 18:51:24  [ main:15 ] - [ INFO ]  This is 1   sendOthers   1 Come to Chat:   update:1  my room name:0000    my room have:1     myroom big:0   0000 room have:1    1111 room have：null
+2017-09-21 18:51:24  [ Thread-0:15 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:02  [ main:0 ] - [ INFO ]  client address:/127.0.0.1:30000
+2017-09-21 18:52:02  [ main:0 ] - [ INFO ]  This is 1   send   Welcome to Chat：
+2017-09-21 18:52:02  [ main:0 ] - [ INFO ]  This is 1   sendOthers   1 Come to Chat:   update:1  my room name:0000    my room have:1     myroom big:0   0000 room have:1    1111 room have：null
+2017-09-21 18:52:02  [ Thread-0:0 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:04  [ main:2365 ] - [ INFO ]  client address:/127.0.0.1:30000
+2017-09-21 18:52:04  [ main:2365 ] - [ INFO ]  This is 2   send   Welcome to Chat：
+2017-09-21 18:52:04  [ main:2365 ] - [ INFO ]  This is 2   sendOthers   2 Come to Chat:   update:2  my room name:0000    my room have:1|2     myroom big:1   0000 room have:1|2    1111 room have：null
+2017-09-21 18:52:04  [ main:2365 ] - [ INFO ]  This is 1   send   2say:2 Come to Chat:
+2017-09-21 18:52:04  [ Thread-1:2365 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:52:16  [ Thread-0:13744 ] - [ INFO ]  This is 1   addroom   1
+2017-09-21 18:52:16  [ Thread-0:13744 ] - [ INFO ]  This is 1   sendOthers   1   update:1  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:52:16  [ Thread-0:13744 ] - [ INFO ]  This is 2   send   1say:1
+2017-09-21 18:52:16  [ Thread-0:13744 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:16  [ Thread-0:14134 ] - [ INFO ]  This is 1   addroom   1
+2017-09-21 18:52:16  [ Thread-0:14134 ] - [ INFO ]  This is 1   sendOthers   1   update:1  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:52:16  [ Thread-0:14134 ] - [ INFO ]  This is 2   send   1say:1
+2017-09-21 18:52:16  [ Thread-0:14134 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:22  [ Thread-0:20208 ] - [ INFO ]  This is 1   addroom   5
+2017-09-21 18:52:22  [ Thread-0:20208 ] - [ INFO ]  This is 1   sendOthers   5   update:1  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:52:22  [ Thread-0:20208 ] - [ INFO ]  This is 2   send   1say:5
+2017-09-21 18:52:22  [ Thread-0:20208 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:32  [ Thread-0:30565 ] - [ INFO ]  This is 1   addroom   +|12
+2017-09-21 18:52:32  [ Thread-0:30565 ] - [ INFO ]  This is 1   del   1|2
+2017-09-21 18:52:32  [ Thread-0:30565 ] - [ INFO ]  This is 1   updatemyroom   
+2017-09-21 18:52:32  [ Thread-0:30565 ] - [ INFO ]  This is 1   sendOthers   1come to: 0012room   update:1  my room name:0012    my room have:1     myroom big:1   0000 room have:2    1111 room have：null
+2017-09-21 18:52:32  [ Thread-0:30565 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:36  [ Thread-0:34054 ] - [ INFO ]  This is 1   addroom   1
+2017-09-21 18:52:36  [ Thread-0:34054 ] - [ INFO ]  This is 1   sendOthers   1   update:1  my room name:0012    my room have:1     myroom big:1   0000 room have:2    1111 room have：null
+2017-09-21 18:52:36  [ Thread-0:34054 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:36  [ Thread-0:34335 ] - [ INFO ]  This is 1   addroom   1
+2017-09-21 18:52:36  [ Thread-0:34335 ] - [ INFO ]  This is 1   sendOthers   1   update:1  my room name:0012    my room have:1     myroom big:1   0000 room have:2    1111 room have：null
+2017-09-21 18:52:36  [ Thread-0:34335 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 2   addroom   +|12
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 2   del   2
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 2   updatemyroom   
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 2   sendOthers   2come to: 0012room   update:2  my room name:0012    my room have:1|2     myroom big:2   0000 room have:    1111 room have：null
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 1   send   2say:2come to: 0012room
+2017-09-21 18:52:48  [ Thread-1:46284 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:52:54  [ Thread-1:52420 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:52:54  [ Thread-1:52420 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:1|2     myroom big:2   0000 room have:    1111 room have：null
+2017-09-21 18:52:54  [ Thread-1:52420 ] - [ INFO ]  This is 1   send   2say:1
+2017-09-21 18:52:54  [ Thread-1:52420 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:52:54  [ Thread-1:52671 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:52:54  [ Thread-1:52671 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:1|2     myroom big:2   0000 room have:    1111 room have：null
+2017-09-21 18:52:54  [ Thread-1:52671 ] - [ INFO ]  This is 1   send   2say:1
+2017-09-21 18:52:54  [ Thread-1:52672 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:52:56  [ Thread-1:54254 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:52:56  [ Thread-1:54254 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:1|2     myroom big:2   0000 room have:    1111 room have：null
+2017-09-21 18:52:56  [ Thread-1:54254 ] - [ INFO ]  This is 1   send   2say:1
+2017-09-21 18:52:56  [ Thread-1:54254 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   addroom   -
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   addroom   +|0000
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   del   1|2
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   updatemyroom   
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   sendOthers   1come to: 0000room   update:1  my room name:0000    my room have:1     myroom big:1   0000 room have:1    1111 room have：null
+2017-09-21 18:53:14  [ Thread-0:72513 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:53:17  [ Thread-1:75401 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:53:17  [ Thread-1:75401 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:2     myroom big:1   0000 room have:1    1111 room have：null
+2017-09-21 18:53:17  [ Thread-1:75401 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:53:17  [ Thread-1:75651 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:53:17  [ Thread-1:75651 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:2     myroom big:1   0000 room have:1    1111 room have：null
+2017-09-21 18:53:17  [ Thread-1:75651 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:53:18  [ Thread-1:75808 ] - [ INFO ]  This is 2   addroom   1
+2017-09-21 18:53:18  [ Thread-1:75808 ] - [ INFO ]  This is 2   sendOthers   1   update:2  my room name:0012    my room have:2     myroom big:1   0000 room have:1    1111 room have：null
+2017-09-21 18:53:18  [ Thread-1:75808 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   addroom   -
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   addroom   +|0000
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   del   2
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   updatemyroom   
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   sendOthers   2come to: 0000room   update:2  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 1   send   2say:2come to: 0000room
+2017-09-21 18:53:23  [ Thread-1:80796 ] - [ INFO ]  This is 2   receive   
+2017-09-21 18:53:29  [ Thread-0:87670 ] - [ INFO ]  This is 1   addroom   2
+2017-09-21 18:53:29  [ Thread-0:87671 ] - [ INFO ]  This is 1   sendOthers   2   update:1  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:53:29  [ Thread-0:87671 ] - [ INFO ]  This is 2   send   1say:2
+2017-09-21 18:53:29  [ Thread-0:87671 ] - [ INFO ]  This is 1   receive   
+2017-09-21 18:53:30  [ Thread-0:87993 ] - [ INFO ]  This is 1   addroom   2
+2017-09-21 18:53:30  [ Thread-0:87993 ] - [ INFO ]  This is 1   sendOthers   2   update:1  my room name:0000    my room have:1|2     myroom big:2   0000 room have:1|2    1111 room have：null
+2017-09-21 18:53:30  [ Thread-0:87993 ] - [ INFO ]  This is 2   send   1say:2
+2017-09-21 18:53:30  [ Thread-0:87993 ] - [ INFO ]  This is 1   receive   
